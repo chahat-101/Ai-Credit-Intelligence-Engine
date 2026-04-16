@@ -1,6 +1,6 @@
 # AI Credit Intelligence Engine
 
-![Demo](assets/CreditEngine.gif)
+![Demo](https://raw.githubusercontent.com/Arnav-Singh-5080/Ai-Credit-Intelligence-Engine/main/assets/CreditEngine.gif)
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python)
 ![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit)
