@@ -179,16 +179,13 @@ We aim to keep things smooth and transparent:
 
 ## 🏅 Attribution
 
-This **CONTRIBUTING.md** was prepared with **❤️** by **Divya Jain** for **Ai-Credit-Intelligence-Engine** as part of the **NSoC'26 program.**
-
-The structure and recommendations follow **GitHub Open Source Guides** and best practices used in leading open-source repositories.
+This **CONTRIBUTING.md** follows open-source best practices and general GitHub contribution guidelines.
 
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
-## 👍 Thank you for your contribution!!
+## 👍 Thank You for Your Contribution!!
 
 <h3 align="center">
-Thank you for contributing to Ai-Credit-Intelligence-Engine 🌟
-<br>
-We can't wait to see what you build! 🍽️✨
+Thank you for contributing to Ai-Credit-Intelligence-Engine 🌟<br>
+We can’t wait to see what you build! 🚀
 </h3>
