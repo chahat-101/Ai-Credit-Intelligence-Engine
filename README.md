@@ -8,6 +8,7 @@
 ![Status](https://img.shields.io/badge/Status-Active-success)
 ![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen)
 ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-blue)
+![NSoC'26](https://img.shields.io/badge/NSoC'26-Project%20Admin-gold)
 
 Live Demo:
 https://credit-intelligence-ai.streamlit.app/
@@ -89,6 +90,8 @@ MIT License
 ## Author  
 
 **Arnav Singh**  
+Project Maintainer & NSoC'26 Project Admin  
+
 Machine Learning Enthusiast | Aspiring Data Scientist  
 
 - Email: itsarnav.singh80@gmail.com  
