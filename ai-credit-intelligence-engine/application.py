@@ -811,7 +811,13 @@ if run:
 
         # Display reasons in UI
         if len(reasons) > 0:
-            st.markdown("### Possible Reasons for Rejection")
+            st.markdown("""
+    <div class="section-header">
+        <div class="section-icon">⚠️</div>
+        <div class="section-title">Possible Reasons for Rejection</div>
+        <div class="section-desc">Key Risk Factors</div>
+    </div>
+    """, unsafe_allow_html=True)
             for reason in reasons:
                 st.write(f"• {reason}")
         else:
