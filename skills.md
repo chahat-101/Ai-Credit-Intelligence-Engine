@@ -1,28 +1,36 @@
 # Skills for Contributors
 
-To work on this project, having basic knowledge of the following will help:
+To work on this project, contributors should have the following core skills. Additional helpful skills are listed separately below.
 
-## Programming
-- Python
+## Core (Required)
+
+### Programming
+- Python 3.9+
 - Basic understanding of machine learning concepts
 
-## Tools and Libraries
+### Tools and Libraries
 - Pandas
 - NumPy
 - Scikit-learn
 - Streamlit
 
-## Git & GitHub
+### Git & GitHub
 - Forking repositories
 - Creating branches
 - Making pull requests
 
-## General
+### General
 - Problem solving
 - Reading existing code
 - Willingness to learn
 
-## Optional
+## Helpful (Not Required)
+
 - Data preprocessing
 - UI improvements in Streamlit
 - Model tuning
+
+## Getting Started
+
+- Read the README.md for project overview
+- Follow CONTRIBUTING.md for contribution steps
