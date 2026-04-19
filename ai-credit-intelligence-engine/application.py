@@ -716,61 +716,75 @@ if applicant_income + coapplicant_income > 0:
     
     with col_a:
         st.metric(
-            "💰 Total Monthly Income", 
+            "Total Monthly Income", 
             f"₹ {total_monthly_income:,.0f}",
             help="Combined income of applicant and co-applicant"
         )
     
     with col_b:
         st.metric(
-            "💸 Maximum EMI You Can Afford", 
+            "Maximum EMI You Can Afford", 
             f"₹ {max_emi_allowed:,.0f}/month",
             help=f"Banks typically cap EMI at {emi_percentage}% of monthly income"
         )
     
     with col_c:
         st.metric(
-            "🏦 Estimated Maximum Loan", 
+            "Estimated Maximum Loan", 
             f"₹ {max_loan_amount:,.0f}",
             help=f"Based on {annual_interest_rate}% interest rate over {loan_term} months"
         )
     st.markdown("---")
-    st.markdown("### 📌 Important Note")
+    
+    # Important Note - Now using consistent font
+    st.markdown("""
+    <div class="section-header" style="margin-top: 20px; margin-bottom: 10px; border-bottom: none;">
+        <div class="section-title" style="font-size: 18px !important;">Important Note</div>
+    </div>
+    """, unsafe_allow_html=True)
+    
     st.info("""
     **This is an approximate affordability estimate only.**  
     Final approval depends on multiple factors including credit score, employment stability, savings, collateral, and the model's internal risk assessment.
     """)
-    st.markdown("### ⚠️ Additional Risk Factors")
+    
+    # Additional Risk Factors - Now using consistent font
+    st.markdown("""
+    <div class="section-header" style="margin-top: 20px; margin-bottom: 10px; border-bottom: none;">
+        <div class="section-title" style="font-size: 18px !important;">Additional Risk Factors</div>
+    </div>
+    """, unsafe_allow_html=True)
     
     risk_warnings = []
     
     if credit_score < 600:
-        risk_warnings.append(f"📉 Low credit score ({credit_score})")
+        risk_warnings.append(f"Low credit score ({credit_score})")
     elif credit_score < 700:
-        risk_warnings.append(f"📊 Fair credit score ({credit_score}) - consider improving")
+        risk_warnings.append(f"Fair credit score ({credit_score}) - consider improving")
     
     if total_monthly_income < 25000:
-        risk_warnings.append(f"💰 Income below ₹25,000/month")
+        risk_warnings.append(f"Income below ₹25,000/month")
     
     if savings == 0:
-        risk_warnings.append("🏦 No savings detected")
+        risk_warnings.append("No savings detected")
     elif savings < loan_amount * 0.1 and loan_amount > 0:
-        risk_warnings.append(f"💰 Low savings ({(savings/loan_amount*100):.1f}% of loan)")
+        risk_warnings.append(f"Low savings ({(savings/loan_amount*100):.1f}% of loan)")
     
     if dependents > 3:
-        risk_warnings.append(f"👨‍👩‍👧‍👦 High dependents ({dependents})")
+        risk_warnings.append(f"High dependents ({dependents})")
     
     if existing_loans > 2:
-        risk_warnings.append(f"📋 Multiple existing loans ({existing_loans})")
+        risk_warnings.append(f"Multiple existing loans ({existing_loans})")
     
     if employment_status == 0:
-        risk_warnings.append("🏢 Unemployed status")
+        risk_warnings.append("Unemployed status")
     
     if risk_warnings:
         for warning in risk_warnings:
             st.warning(warning)
     else:
-        st.success("✅ No major risk factors detected")
+        st.success("No major risk factors detected")
+    
     # Warning or success based on requested loan
     if loan_amount > 0:
         if loan_amount > max_loan_amount:
@@ -778,7 +792,7 @@ if applicant_income + coapplicant_income > 0:
             excess_percentage = (excess_amount / max_loan_amount) * 100
             
             st.error(f"""
-            ❌ **Loan Amount Exceeds Affordability Limit**
+            **Loan Amount Exceeds Affordability Limit**
             
             - Requested: ₹ {loan_amount:,.0f}
             - Affordable Limit: ₹ {max_loan_amount:,.0f}
@@ -792,7 +806,7 @@ if applicant_income + coapplicant_income > 0:
             suggested_emi = calculate_emi(max_loan_amount, suggested_tenure)
             
             st.info(f"""
-            💡 **Alternative Suggestion:**
+            **Alternative Suggestion:**
             - Reduce loan amount to ₹ {max_loan_amount:,.0f}
             - Or increase tenure to {suggested_tenure} months (EMI: ₹ {suggested_emi:,.0f}/month)
             """)
@@ -802,7 +816,7 @@ if applicant_income + coapplicant_income > 0:
             buffer_percentage = (buffer_amount / max_loan_amount) * 100
             
             st.success(f"""
-            ✅ **Loan Amount Within Affordable Range**
+            **Loan Amount Within Affordable Range**
             
             - Requested: ₹ {loan_amount:,.0f}
             - Affordable Limit: ₹ {max_loan_amount:,.0f}
@@ -813,7 +827,7 @@ if applicant_income + coapplicant_income > 0:
     
     # Show EMI breakdown
     if current_emi > 0:
-        st.caption(f"📊 **Current EMI:** ₹ {current_emi:,.0f}/month ({current_emi_ratio:.1f}% of income)")
+        st.caption(f"**Current EMI:** ₹ {current_emi:,.0f}/month ({current_emi_ratio:.1f}% of income)")
         
         # Progress bar for EMI utilization
         emi_utilization_percentage = min(100, (current_emi / max_emi_allowed * 100) if max_emi_allowed > 0 else 0)
@@ -822,14 +836,14 @@ if applicant_income + coapplicant_income > 0:
         st.progress(int(emi_utilization_percentage))
         
         if emi_utilization_percentage > 100:
-            st.warning("⚠️ Your EMI exceeds the recommended limit!")
+            st.warning("Your EMI exceeds the recommended limit!")
         elif emi_utilization_percentage > 80:
-            st.info("📘 Your EMI is close to the recommended limit. Consider reducing loan amount.")
+            st.info("Your EMI is close to the recommended limit. Consider reducing loan amount.")
         else:
-            st.success("✅ Your EMI is within comfortable limits.")
+            st.success("Your EMI is within comfortable limits.")
             
 else:
-    st.info("👆 Enter applicant/coapplicant income to see loan affordability analysis")
+    st.info("Enter applicant/coapplicant income to see loan affordability analysis")
     
 st.markdown("---")
 # -----------------------------------
