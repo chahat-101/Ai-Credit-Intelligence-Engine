@@ -89,18 +89,7 @@ Click on the Fork button.
 
 ### 2️⃣ Clone Your Fork
 
-First, fork the repository to your GitHub account.
-
-Then clone your fork using the following command:
-
-```bash
-git clone https://github.com/<your-username>/Ai-Credit-Intelligence-Engine.git
-
-Replace <your-username> with your actual GitHub username.
-Example:
-
-```bash
-git clone https://github.com/Arnav-Singh-5080/Ai-Credit-Intelligence-Engine.git
+git clone https://github.com/your-username/Ai-Credit-Intelligence-Engine.git
 
 ### 3️⃣ Create a Branch
 
