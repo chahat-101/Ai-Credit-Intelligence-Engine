@@ -8,14 +8,15 @@ import numpy as np
 # Page Config
 # -----------------------------------
 st.set_page_config(
-    page_title="LoanSahayak — Smart Loan Intelligence", page_icon="🏦", layout="wide"
+    page_title="LoanSahayak — Smart Loan Intelligence",
+    page_icon="🏦",
+    layout="wide"
 )
 
 # -----------------------------------
 # Premium UI Styling — Luxury Finance Aesthetic
 # -----------------------------------
-st.markdown(
-    """
+st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
 
@@ -406,15 +407,12 @@ hr {
 .input-group-gap { margin-top: 8px; }
 
 </style>
-""",
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
 
 # -----------------------------------
 # HERO HEADER
 # -----------------------------------
-st.markdown(
-    """
+st.markdown("""
 <div class="hero-wrap">
     <div class="hero-badge">✦ AI-Powered Lending Intelligence</div>
     <div class="hero-title">Loan<span>Sahayak</span></div>
@@ -436,9 +434,7 @@ st.markdown(
         </div>
     </div>
 </div>
-""",
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
 
 # -----------------------------------
 # Sidebar
@@ -446,8 +442,7 @@ st.markdown(
 # -----------------------------------
 # Sidebar (Premium – Same Font Style)
 # -----------------------------------
-st.sidebar.markdown(
-    """
+st.sidebar.markdown("""
 <div style="padding: 8px 0 20px; border-bottom: 1px solid rgba(201,168,76,0.2); margin-bottom: 20px;">
     <div style="font-family: 'Playfair Display', serif; font-size: 22px; color: #F0EBE0; font-weight: 700;">
         LoanSahayak
@@ -456,13 +451,10 @@ st.sidebar.markdown(
         Smart Loan Intelligence
     </div>
 </div>
-""",
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
 
 # System Info (Improved readability)
-st.sidebar.markdown(
-    """
+st.sidebar.markdown("""
 <div style="
     padding:16px;
     border-radius:14px;
@@ -477,15 +469,12 @@ AI-powered system that evaluates loan applications using:<br>
 • Credit score analysis<br>
 • Multi-factor risk assessment
 </div>
-""",
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
 
 st.sidebar.markdown("<br>", unsafe_allow_html=True)
 
 # Trust Indicators (NEW 🔥)
-st.sidebar.markdown(
-    """
+st.sidebar.markdown("""
 <div style="font-size:12px; color:#9A9080; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px;">
 System Stats
 </div>
@@ -494,15 +483,12 @@ System Stats
 ✔ Decision Time: <span style="color:#C9A84C;">&lt; 2s</span><br>
 ✔ Risk Factors: <span style="color:#C9A84C;">16+</span>
 </div>
-""",
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
 
 st.sidebar.markdown("<hr>", unsafe_allow_html=True)
 
 # Author Section (Refined)
-st.sidebar.markdown(
-    """
+st.sidebar.markdown("""
 <div style="font-family:'Playfair Display', serif; font-size:20px; color:#F0EBE0; font-weight:600;">
 👤 Project Author
 </div>
@@ -514,9 +500,7 @@ Arnav Singh
 <div style="font-size:13px; color:#9A9080; margin-top:4px;">
 Machine Learning Enthusiast | Aspiring Data Scientist
 </div>
-""",
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
 
 # Clean Links (Same Font – No Buttons ❌)
 st.sidebar.markdown("<br>", unsafe_allow_html=True)
@@ -525,8 +509,7 @@ col1, col2, col3 = st.sidebar.columns(3, gap="small")
 
 # LinkedIn
 with col1:
-    st.markdown(
-        """
+    st.markdown("""
     <div style="display:flex; justify-content:center;">
         <a href="https://www.linkedin.com/in/arnav-singh-a87847351" target="_blank">
             <div style="
@@ -545,14 +528,11 @@ with col1:
             </div>
         </a>
     </div>
-    """,
-        unsafe_allow_html=True,
-    )
+    """, unsafe_allow_html=True)
 
 # Email (CENTER)
 with col2:
-    st.markdown(
-        """
+    st.markdown("""
     <div style="display:flex; justify-content:center;">
         <a href="mailto:itsarnav.singh80@gmail.com">
             <div style="
@@ -571,14 +551,11 @@ with col2:
             </div>
         </a>
     </div>
-    """,
-        unsafe_allow_html=True,
-    )
+    """, unsafe_allow_html=True)
 
 # GitHub
 with col3:
-    st.markdown(
-        """
+    st.markdown("""
     <div style="display:flex; justify-content:center;">
         <a href="https://github.com/Arnav-Singh-5080" target="_blank">
             <div style="
@@ -597,24 +574,19 @@ with col3:
             </div>
         </a>
     </div>
-    """,
-        unsafe_allow_html=True,
-    )
+    """, unsafe_allow_html=True)
 
 st.sidebar.markdown("<br>", unsafe_allow_html=True)
 
 # Optional CTA
-st.sidebar.markdown(
-    """
+st.sidebar.markdown("""
 <div style="font-size:12px; color:#5A5448; text-align:center;">
 ⭐ If you like this project, consider starring it on GitHub
 </div>
-""",
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
 
 # -----------------------------------
-# Load Model (with Error Handling)
+# Load Model
 # -----------------------------------
 model_path = os.path.join(os.path.dirname(__file__), "..", "models", "loan_model.pkl")
 scaler_path = os.path.join(os.path.dirname(__file__), "..", "models", "scaler.pkl")
@@ -633,7 +605,6 @@ except FileNotFoundError:
     """)
     st.stop()
 
-
 # -----------------------------------
 # EMI Calculator
 # -----------------------------------
@@ -641,47 +612,40 @@ def calculate_emi(principal, tenure_months, annual_rate=10):
     if principal == 0 or tenure_months == 0:
         return 0
     monthly_rate = annual_rate / 12 / 100
-    emi = (principal * monthly_rate * (1 + monthly_rate) ** tenure_months) / (
-        (1 + monthly_rate) ** tenure_months - 1
-    )
+    emi = (principal * monthly_rate * (1 + monthly_rate)**tenure_months) / \
+          ((1 + monthly_rate)**tenure_months - 1)
     return emi
-
 
 # -----------------------------------
 # Section: Financial Details
 # -----------------------------------
-st.markdown(
-    """
+st.markdown("""
 <div class="section-header">
     <div class="section-icon">💼</div>
     <div class="section-title">Financial Profile</div>
     <div class="section-desc">Income & Loan Details</div>
 </div>
-""",
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2, gap="large")
 
 with col1:
-    applicant_income = st.number_input("Applicant Income (₹)", min_value=0, step=1000)
-    coapplicant_income = st.number_input(
-        "Coapplicant Income (₹)", min_value=0, step=1000
-    )
-    loan_amount = st.number_input("Loan Amount (₹)", min_value=0, step=1000)
-    savings = st.number_input("Savings (₹)", min_value=0, step=1000)
+    applicant_income    = st.number_input("Applicant Income (₹)", min_value=0, step=1000)
+    coapplicant_income  = st.number_input("Coapplicant Income (₹)", min_value=0, step=1000)
+    loan_amount         = st.number_input("Loan Amount (₹)", min_value=0, step=1000)
+    savings             = st.number_input("Savings (₹)", min_value=0, step=1000)
 
 with col2:
-    collateral_value = st.number_input("Collateral Value (₹)", min_value=0, step=1000)
-    dependents = st.number_input("Number of Dependents", min_value=0)
-    existing_loans = st.number_input("Existing Active Loans", min_value=0)
+    collateral_value    = st.number_input("Collateral Value (₹)", min_value=0, step=1000)
+    dependents          = st.number_input("Number of Dependents", min_value=0)
+    existing_loans      = st.number_input("Existing Active Loans", min_value=0)
     st.markdown('<div class="input-group-gap"></div>', unsafe_allow_html=True)
 
 col3, col4 = st.columns(2, gap="large")
 with col3:
     credit_score = st.slider("Credit Score", 300, 900, 650)
 with col4:
-    loan_term = st.slider("Loan Term (Months)", 6, 360, 60)
+    loan_term    = st.slider("Loan Term (Months)", 6, 360, 60)
 
 col5, _ = st.columns([1, 1], gap="large")
 with col5:
@@ -690,53 +654,35 @@ with col5:
 # -----------------------------------
 # Section: Background Details
 # -----------------------------------
-st.markdown(
-    """
+st.markdown("""
 <div class="section-header" style="margin-top: 44px;">
     <div class="section-icon">👤</div>
     <div class="section-title">Applicant Background</div>
     <div class="section-desc">Demographic & Employment</div>
 </div>
-""",
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
 
 col6, col7 = st.columns(2, gap="large")
 
 with col6:
     employment_dict = {"Unemployed": 0, "Salaried": 1, "Self-Employed": 2}
-    employment_status = employment_dict[
-        st.selectbox("Employment Status", list(employment_dict.keys()))
-    ]
+    employment_status = employment_dict[st.selectbox("Employment Status", list(employment_dict.keys()))]
 
     property_dict = {"Rural": 0, "Semi-Urban": 1, "Urban": 2}
-    property_area = property_dict[
-        st.selectbox("Property Area", list(property_dict.keys()))
-    ]
+    property_area = property_dict[st.selectbox("Property Area", list(property_dict.keys()))]
 
-    loan_purpose_dict = {
-        "Home Loan": 0,
-        "Car Loan": 1,
-        "Education Loan": 2,
-        "Personal Loan": 3,
-    }
-    loan_purpose = loan_purpose_dict[
-        st.selectbox("Loan Purpose", list(loan_purpose_dict.keys()))
-    ]
+    loan_purpose_dict = {"Home Loan": 0, "Car Loan": 1, "Education Loan": 2, "Personal Loan": 3}
+    loan_purpose = loan_purpose_dict[st.selectbox("Loan Purpose", list(loan_purpose_dict.keys()))]
 
 with col7:
     education_dict = {"Not Graduate": 0, "Graduate": 1}
-    education_level = education_dict[
-        st.selectbox("Education Level", list(education_dict.keys()))
-    ]
+    education_level = education_dict[st.selectbox("Education Level", list(education_dict.keys()))]
 
     gender_dict = {"Female": 0, "Male": 1}
     gender = gender_dict[st.selectbox("Gender", list(gender_dict.keys()))]
 
     employer_category_dict = {"Private Sector": 0, "Government": 1, "Business Owner": 2}
-    employer_category = employer_category_dict[
-        st.selectbox("Employer Category", list(employer_category_dict.keys()))
-    ]
+    employer_category = employer_category_dict[st.selectbox("Employer Category", list(employer_category_dict.keys()))]
 
 # -----------------------------------
 # Analyse Button
@@ -758,13 +704,7 @@ if run:
         st.stop()
 
     import time
-    from reportlab.platypus import (
-        SimpleDocTemplate,
-        Paragraph,
-        Spacer,
-        Table,
-        TableStyle,
-    )
+    from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
     from reportlab.lib import colors
     from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
     from reportlab.lib.pagesizes import A4
@@ -779,13 +719,11 @@ if run:
         "📊 Analyzing income & liabilities...",
         "🧠 Running ML model inference...",
         "⚖️ Evaluating risk parameters...",
-        "✅ Finalizing decision...",
+        "✅ Finalizing decision..."
     ]
 
     for i, step in enumerate(steps):
-        status_text.markdown(
-            f"<span style='color:#C9A84C;'>{step}</span>", unsafe_allow_html=True
-        )
+        status_text.markdown(f"<span style='color:#C9A84C;'>{step}</span>", unsafe_allow_html=True)
         progress_bar.progress((i + 1) * 20)
         time.sleep(0.4)
 
@@ -805,65 +743,33 @@ if run:
         s3.metric("Credit Score", credit_score)
 
     # Prediction
-    input_data = pd.DataFrame(
-        [
-            [
-                applicant_income,
-                coapplicant_income,
-                loan_amount,
-                credit_score,
-                age,
-                dependents,
-                existing_loans,
-                savings,
-                collateral_value,
-                loan_term,
-                employment_status,
-                property_area,
-                loan_purpose,
-                education_level,
-                gender,
-                employer_category,
-            ]
-        ],
-        columns=[
-            "Applicant_Income",
-            "Coapplicant_Income",
-            "Loan_Amount",
-            "Credit_Score",
-            "Age",
-            "Dependents",
-            "Existing_Loans",
-            "Savings",
-            "Collateral_Value",
-            "Loan_Term",
-            "Employment_Status",
-            "Property_Area",
-            "Loan_Purpose",
-            "Education_Level",
-            "Gender",
-            "Employer_Category",
-        ],
-    )
+    input_data = pd.DataFrame([[
+        applicant_income, coapplicant_income, loan_amount, credit_score,
+        age, dependents, existing_loans, savings, collateral_value,
+        loan_term, employment_status, property_area, loan_purpose,
+        education_level, gender, employer_category
+    ]], columns=[
+        'Applicant_Income','Coapplicant_Income','Loan_Amount','Credit_Score',
+        'Age','Dependents','Existing_Loans','Savings','Collateral_Value',
+        'Loan_Term','Employment_Status','Property_Area','Loan_Purpose',
+        'Education_Level','Gender','Employer_Category'
+    ])
 
-    scaled_data = scaler.transform(input_data)
-    prediction = model.predict(scaled_data)
-    probability = model.predict_proba(scaled_data)
+    scaled_data  = scaler.transform(input_data)
+    prediction   = model.predict(scaled_data)
+    probability  = model.predict_proba(scaled_data)
     approval_prob = probability[0][1] * 100
 
     # Divider
     st.markdown("---")
 
     # Financial Analysis
-    st.markdown(
-        """
+    st.markdown("""
     <div class="section-header">
         <div class="section-icon">📊</div>
         <div class="section-title">Financial Analysis</div>
     </div>
-    """,
-        unsafe_allow_html=True,
-    )
+    """, unsafe_allow_html=True)
 
     mA, mB, mC = st.columns(3)
     mA.metric("Monthly EMI", f"₹ {round(emi, 2):,}")
@@ -873,10 +779,11 @@ if run:
     # AI Confidence
     st.markdown("---")
     st.progress(int(approval_prob))
-    st.markdown(f"**Approval Probability: {round(approval_prob, 1)}%**")
+    st.markdown(f"**Approval Probability: {round(approval_prob,1)}%**")
 
     st.markdown("<br>", unsafe_allow_html=True)
-
+    
+    
     # Risk
     if emi_ratio > 0.5:
         st.warning("⚠ High EMI ratio")
@@ -885,6 +792,7 @@ if run:
     else:
         st.info("✓ Stable profile")
 
+
     # -----------------------------
     # Decision UI
     # -----------------------------
@@ -892,19 +800,17 @@ if run:
     decision_text = "APPROVED" if prediction[0] == 1 else "REJECTED"
 
     if prediction[0] == 1:
-        st.success(f"✓ Loan Approved (Confidence: {round(approval_prob, 2)}%)")
+        st.success(f"✓ Loan Approved (Confidence: {round(approval_prob,2)}%)")
 
     else:
-        st.error(f"✕ Loan Rejected (Confidence: {round(100 - approval_prob, 2)}%)")
+        st.error(f"✕ Loan Rejected (Confidence: {round(100-approval_prob,2)}%)")
 
         # ---- Rejection Reason Logic ----
         reasons = []
 
         # Income check
         if total_income < 25000:
-            reasons.append(
-                "Total household income is below the recommended threshold (₹25,000)."
-            )
+            reasons.append("Total household income is below the recommended threshold (₹25,000).")
 
         # EMI ratio check
         if emi_ratio > 0.5:
@@ -924,21 +830,19 @@ if run:
 
         # Display reasons in UI
         if len(reasons) > 0:
-            st.markdown(
-                """
+            st.markdown("""
     <div class="section-header">
         <div class="section-icon">⚠️</div>
         <div class="section-title">Possible Reasons for Rejection</div>
         <div class="section-desc">Key Risk Factors</div>
     </div>
-    """,
-                unsafe_allow_html=True,
-            )
+    """, unsafe_allow_html=True)
             for reason in reasons:
                 st.write(f"• {reason}")
         else:
             st.write("The application does not meet the Bank approval criteria.")
-
+            
+            
     # -----------------------------------
     # PREMIUM PDF REPORT
     # -----------------------------------
@@ -947,14 +851,16 @@ if run:
     styles = getSampleStyleSheet()
 
     title_style = ParagraphStyle(
-        name="Title",
-        parent=styles["Title"],
+        name='Title',
+        parent=styles['Title'],
         alignment=TA_CENTER,
-        textColor=colors.HexColor("#C9A84C"),
+        textColor=colors.HexColor("#C9A84C")
     )
 
     section_style = ParagraphStyle(
-        name="Heading", parent=styles["Heading2"], textColor=colors.HexColor("#3B82F6")
+        name='Heading',
+        parent=styles['Heading2'],
+        textColor=colors.HexColor("#3B82F6")
     )
 
     content = []
@@ -969,24 +875,18 @@ if run:
     content.append(Paragraph("Financial Summary", section_style))
     content.append(Spacer(1, 10))
 
-    table = Table(
-        [
-            ["Metric", "Value"],
-            ["Total Income", f"₹ {total_income:,}"],
-            ["Loan Amount", f"₹ {loan_amount:,}"],
-            ["Loan Term", f"{loan_term} months"],
-            ["EMI", f"₹ {round(emi, 2)}"],
-        ]
-    )
+    table = Table([
+        ["Metric", "Value"],
+        ["Total Income", f"₹ {total_income:,}"],
+        ["Loan Amount", f"₹ {loan_amount:,}"],
+        ["Loan Term", f"{loan_term} months"],
+        ["EMI", f"₹ {round(emi,2)}"]
+    ])
 
-    table.setStyle(
-        TableStyle(
-            [
-                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#C9A84C")),
-                ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
-            ]
-        )
-    )
+    table.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (-1,0), colors.HexColor("#C9A84C")),
+        ('GRID', (0,0), (-1,-1), 0.5, colors.grey)
+    ]))
 
     content.append(table)
     content.append(Spacer(1, 20))
@@ -995,15 +895,15 @@ if run:
     content.append(Paragraph("Credit Profile", section_style))
     content.append(Spacer(1, 10))
 
-    table2 = Table(
-        [
-            ["Credit Score", credit_score],
-            ["Dependents", dependents],
-            ["Existing Loans", existing_loans],
-        ]
-    )
+    table2 = Table([
+        ["Credit Score", credit_score],
+        ["Dependents", dependents],
+        ["Existing Loans", existing_loans]
+    ])
 
-    table2.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), 0.5, colors.grey)]))
+    table2.setStyle(TableStyle([
+        ('GRID', (0,0), (-1,-1), 0.5, colors.grey)
+    ]))
 
     content.append(table2)
     content.append(Spacer(1, 20))
@@ -1011,20 +911,22 @@ if run:
     # Decision
     color = colors.green if prediction[0] == 1 else colors.red
     decision_style = ParagraphStyle(
-        name="Decision", parent=styles["Heading1"], alignment=TA_CENTER, textColor=color
+        name='Decision',
+        parent=styles['Heading1'],
+        alignment=TA_CENTER,
+        textColor=color
     )
 
     content.append(Paragraph(decision_text, decision_style))
     content.append(Spacer(1, 10))
-    content.append(
-        Paragraph(f"Confidence: {round(approval_prob, 2)}%", styles["Normal"])
-    )
+    content.append(Paragraph(f"Confidence: {round(approval_prob,2)}%", styles["Normal"]))
     content.append(Spacer(1, 20))
 
     # -------------------------------
     # Add Rejection Reasons to PDF
     # -------------------------------
     if prediction[0] == 0 and reasons:
+
         content.append(Paragraph("Reasons for Rejection", section_style))
         content.append(Spacer(1, 10))
 
@@ -1037,21 +939,20 @@ if run:
     content.append(Paragraph("Generated by LoanSahayak AI", styles["Italic"]))
 
     doc.build(content)
-
+    
     # Download Button
     with open(pdf_path, "rb") as f:
         st.download_button(
             label="📄 Download Premium PDF Report",
             data=f,
             file_name="LoanSahayak_Report.pdf",
-            mime="application/pdf",
+            mime="application/pdf"
         )
 
 # -----------------------------------
 # Footer
 # -----------------------------------
-st.markdown(
-    """
+st.markdown("""
 <div style="
     margin-top: 100px;
     padding: 28px 32px;
@@ -1067,6 +968,4 @@ st.markdown(
     <div>© 2026 <span style='color:#C9A84C;'>LoanSahayak</span> — All Rights Reserved</div>
     <div style='text-transform:uppercase; letter-spacing:2px;'>AI · Credit · Intelligence</div>
 </div>
-""",
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True) 
