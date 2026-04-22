@@ -596,27 +596,14 @@ scaler = pickle.load(open(scaler_path, "rb"))
 # -----------------------------------
 # EMI Calculator
 # -----------------------------------
-def calculate_emi(principal, tenure_months, annual_rate):
-    
-    """
-    Calculates the Equated Monthly Installment (EMI).
-    Formula: [P x R x (1+R)^N] / [(1+R)^N-1]
-    """
-    if principal <= 0 or tenure_months <= 0:
+def calculate_emi(principal, tenure_months, annual_rate=10):
+    if principal == 0 or tenure_months == 0:
         return 0
-    
-    # Handle 0% interest case specifically to avoid ZeroDivisionError
-    if annual_rate == 0:
-        return principal / tenure_months
-
     monthly_rate = annual_rate / 12 / 100
-    
-    # Standard EMI Formula
-    num = principal * monthly_rate * (1 + monthly_rate)**tenure_months
-    den = (1 + monthly_rate)**tenure_months - 1
-    emi = num / den
-    
+    emi = (principal * monthly_rate * (1 + monthly_rate)**tenure_months) / \
+          ((1 + monthly_rate)**tenure_months - 1)
     return emi
+
 # -----------------------------------
 # Section: Financial Details
 # -----------------------------------
@@ -648,11 +635,9 @@ with col3:
 with col4:
     loan_term    = st.slider("Loan Term (Months)", 6, 360, 60)
 
-col5, col5b = st.columns(2, gap="large")
+col5, _ = st.columns([1, 1], gap="large")
 with col5:
     age = st.slider("Applicant Age", 18, 70, 30)
-with col5b:
-    annual_interest_rate = st.slider("Annual Interest Rate (%)", 5.0, 24.0, 10.0, step=0.5)
 
 # -----------------------------------
 # Section: Background Details
@@ -735,7 +720,7 @@ if run:
 
     # ---------------- MAIN LOGIC ----------------
     total_income = applicant_income + coapplicant_income
-    emi = calculate_emi(loan_amount, loan_term, annual_interest_rate)
+    emi = calculate_emi(loan_amount, loan_term)
     emi_ratio = emi / total_income if total_income > 0 else 0
 
     # Summary
@@ -971,4 +956,4 @@ st.markdown("""
     <div>© 2026 <span style='color:#C9A84C;'>LoanSahayak</span> — All Rights Reserved</div>
     <div style='text-transform:uppercase; letter-spacing:2px;'>AI · Credit · Intelligence</div>
 </div>
-""", unsafe_allow_html=True)
+""", unsafe_allow_html=True) 
